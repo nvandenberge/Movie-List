@@ -1,0 +1,36 @@
+.row {
+    margin-left: 20px;
+    color: white;
+}
+
+.row__posters {
+    display: flex;  /*turns the columns into rows*/
+    overflow-y: hidden;
+    overflow-x: scroll;
+    padding: 20px; /*this padding helps with poster not getting cut-off on :hover*/
+}
+
+.row__posters::-webkit-scrollbar {
+    display: none; /*tells browser to never display scrollbars*/
+}
+
+.row__poster {
+    object-fit: contain; /*helps to keep aspect ratio of images regardless of width/height*/
+    width: 100%;
+    max-height: 100px;
+    margin-right: 10px;
+    transition: transform 150ms; /*controls the speed at which the posters scale when hovering*/
+}
+
+.row__poster:hover {
+    transform: scale(1.10);
+}
+
+.row__posterLarge {
+    max-height: 250px;
+}
+
+.row__posterLarge:hover {
+    transform: scale(1.12);
+}
+
