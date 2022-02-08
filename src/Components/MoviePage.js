@@ -3,19 +3,45 @@ import { MoviesContext } from "../Store/MoviesContext";
 import Row from "./Row";
 
 const MoviePage = () => {
-  const { movieData, getActionMovies } = useContext(MoviesContext);
+  const {
+    movieData,
+    fetchNetflixOriginals,
+    fetchTopRated,
+    fetchActionMovies,
+    fetchComedyMovies,
+    fetchHorrorMovies,
+    fetchRomanceMovies,
+    fetchDocumentryMovies,
+  } = useContext(MoviesContext);
 
   useEffect(() => {
-    getActionMovies();
+    fetchNetflixOriginals();
+    fetchTopRated();
+    fetchActionMovies();
+    fetchComedyMovies();
+    fetchHorrorMovies();
+    fetchRomanceMovies();
+    fetchDocumentryMovies();
   }, []);
-  console.log("movies", movieData);
 
-  return( 
-  <div>
-    Movie Page
-    <Row 
-    title="Action Movies" movies={movieData?.Action} />
-  </div>);
+  console.log('movies', movieData);
+
+  return (
+    <div>
+       <Row
+        title="NETFLIX ORIGINALS"
+        isLargeRow
+        movies={movieData?.NetflixOriginals}
+      />
+      <Row title="TOP RATED" movies={movieData?.TopRated} />
+      <Row title="ACTION MOVIES" movies={movieData?.Action} />
+      <Row title="COMEDY MOVIES" movies={movieData?.Comedy} />
+      <Row title="HORROR MOVIES" movies={movieData?.Horror} />
+      <Row title="ROMANCE MOVIES" movies={movieData?.Romance} />
+      <Row title="DOCUMENTARIES" movies={movieData?.Documentaries} />
+    
+    </div>
+  );
 };
 
 export default MoviePage;

@@ -1,50 +1,53 @@
-import { ACTIONS } from "./const";
+import {
+	FETCH_NETFLIX_ORIGINALS,
+	FETCH_TOP_RATED,
+	FETCH_ACTION_MOVIES,
+	FETCH_COMEDY_MOVIES,
+	FETCH_DOCUMENTRY_MOVIES,
+	FETCH_HORROR_MOVIES,
+	FETCH_ROMANCE_MOVIES,
+  } from "./const";
 
-export const initialState = {};
+export const initialState = [];
 
 export const reducer = (state, action) => {
 	const { payload, type } = action;
 	switch (type) {
-		case ACTIONS.FETCH_ACTION_MOVIES:
+		case FETCH_NETFLIX_ORIGINALS:
+			return {
+				...state,
+				NetflixOriginals: payload,
+			};
+		case FETCH_TOP_RATED:
+			return {
+				...state,
+				TopRated: payload,
+			};
+		case FETCH_ACTION_MOVIES:
 			return {
 				...state,
 				Action: payload,
 			};
-		// case ACTIONS.FETCH_NETFLIX_ORIGINALS:
-		// 	return {
-		// 		...state,
-		// 		NetflixOriginals: payload,
-		// 	};
-		// case ACTIONS.FETCH_TOP_RATED:
-		// 	return {
-		// 		...state,
-		// 		TopRated: payload,
-		// 	};
-		// case ACTIONS.FETCH_ACTION_MOVIES:
-		// 	return {
-		// 		...state,
-		// 		Action: payload,
-		// 	};
-		// case ACTIONS.FETCH_COMEDY_MOVIES:
-		// 	return {
-		// 		...state,
-		// 		Comedy: payload,
-		// 	};
-		// case ACTIONS.FETCH_HORROR_MOVIES:
-		// 	return {
-		// 		...state,
-		// 		Horror: payload,
-		// 	};
-		// case ACTIONS.FETCH_ROMANCE_MOVIES:
-		// 	return {
-		// 		...state,
-		// 		Romance: payload,
-		// 	};
-		// case ACTIONS.FETCH_DOCUMENTARIES:
-		// 	return {
-		// 		...state,
-		// 		Documentaries: payload,
-		// 	};
+		case FETCH_COMEDY_MOVIES:
+			return {
+				...state,
+				Comedy: payload,
+			};
+		case FETCH_HORROR_MOVIES:
+			return {
+				...state,
+				Horror: payload,
+			};
+		case FETCH_ROMANCE_MOVIES:
+			return {
+				...state,
+				Romance: payload,
+			};
+		case FETCH_DOCUMENTRY_MOVIES:
+			return {
+				...state,
+				Documentaries: payload,
+			};
 		default:
 			return state;
 	}
