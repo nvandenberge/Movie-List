@@ -3,7 +3,7 @@ import { reducer, initialState } from "./reducer";
 import { MoviesContext } from "./MoviesContext";
 import {
   REQUESTS,
-  FETCH_NETFLIX_ORIGINALS,
+  FETCH_TRENDING,
   FETCH_TOP_RATED,
   FETCH_ACTION_MOVIES,
   FETCH_COMEDY_MOVIES,
@@ -16,11 +16,11 @@ import axios from "axios";
 export const Store = ({ children }) => {
   const [movieData, dispatch] = useReducer(reducer, initialState);
 
-  const fetchNetflixOriginals = async () => {
+  const fetchTrending = async () => {
     try {
-      let res = await axios.get(REQUESTS.NETFLIX_ORIGINALS_URL);
+      let res = await axios.get(REQUESTS.TRENDING_URL);
       dispatch({
-        type: FETCH_NETFLIX_ORIGINALS,
+        type: FETCH_TRENDING,
         payload: res.data.results,
       });
     } catch (error) {
@@ -105,7 +105,7 @@ export const Store = ({ children }) => {
       value={{
         movieData,
         dispatch,
-        fetchNetflixOriginals,
+        fetchTrending,
         fetchTopRated,
         fetchActionMovies,
         fetchComedyMovies,

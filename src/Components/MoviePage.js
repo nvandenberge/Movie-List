@@ -1,11 +1,11 @@
 import React, { useEffect, useContext } from "react";
 import { MoviesContext } from "../Store/MoviesContext";
-import Row from "./Row";
+import Row from "./Row/Row";
 
 const MoviePage = () => {
   const {
     movieData,
-    fetchNetflixOriginals,
+    fetchTrending,
     fetchTopRated,
     fetchActionMovies,
     fetchComedyMovies,
@@ -15,7 +15,7 @@ const MoviePage = () => {
   } = useContext(MoviesContext);
 
   useEffect(() => {
-    fetchNetflixOriginals();
+    fetchTrending();
     fetchTopRated();
     fetchActionMovies();
     fetchComedyMovies();
@@ -29,9 +29,9 @@ const MoviePage = () => {
   return (
     <div>
        <Row
-        title="NETFLIX ORIGINALS"
+        title="TRENDING"
         isLargeRow
-        movies={movieData?.NetflixOriginals}
+        movies={movieData?.Trending}
       />
       <Row title="TOP RATED" movies={movieData?.TopRated} />
       <Row title="ACTION MOVIES" movies={movieData?.Action} />

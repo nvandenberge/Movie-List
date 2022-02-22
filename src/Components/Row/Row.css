@@ -11,9 +11,9 @@
     padding: 20px; /*this padding helps with poster not getting cut-off on :hover*/
 }
 
-.row__posters::-webkit-scrollbar {
-    display: none; /*tells browser to never display scrollbars*/
-}
+ /* .row__posters::-webkit-scrollbar {
+    display: none;
+}  */
 
 .row__poster {
     object-fit: contain; /*helps to keep aspect ratio of images regardless of width/height*/
@@ -38,5 +38,10 @@
 h2 {
     margin-top: 0;
     margin-bottom: 5px;
+}
+
+.row__movieInfo {
+    height: auto;
+    width: 500px;
 }
 

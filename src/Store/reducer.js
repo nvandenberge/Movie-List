@@ -1,5 +1,5 @@
 import {
-	FETCH_NETFLIX_ORIGINALS,
+	FETCH_TRENDING,
 	FETCH_TOP_RATED,
 	FETCH_ACTION_MOVIES,
 	FETCH_COMEDY_MOVIES,
@@ -13,10 +13,10 @@ export const initialState = [];
 export const reducer = (state, action) => {
 	const { payload, type } = action;
 	switch (type) {
-		case FETCH_NETFLIX_ORIGINALS:
+		case FETCH_TRENDING:
 			return {
 				...state,
-				NetflixOriginals: payload,
+				Trending: payload,
 			};
 		case FETCH_TOP_RATED:
 			return {
