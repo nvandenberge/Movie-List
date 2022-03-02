@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from "react";
-import { MoviesContext } from "../Store/MoviesContext";
-import Row from "./Row/Row";
+import { MoviesContext } from "../../Store/MoviesContext";
+import Row from "../Row/Row";
 
 const MoviePage = () => {
   const {
@@ -14,6 +14,7 @@ const MoviePage = () => {
     fetchDocumentryMovies,
   } = useContext(MoviesContext);
 
+  // TODO: check if data already exists before making api call to reduce api calls
   useEffect(() => {
     fetchTrending();
     fetchTopRated();
@@ -23,8 +24,6 @@ const MoviePage = () => {
     fetchRomanceMovies();
     fetchDocumentryMovies();
   }, []);
-
-  console.log('movies', movieData);
 
   return (
     <div>
@@ -39,7 +38,6 @@ const MoviePage = () => {
       <Row title="HORROR MOVIES" movies={movieData?.Horror} />
       <Row title="ROMANCE MOVIES" movies={movieData?.Romance} />
       <Row title="DOCUMENTARIES" movies={movieData?.Documentaries} />
-    
     </div>
   );
 };
